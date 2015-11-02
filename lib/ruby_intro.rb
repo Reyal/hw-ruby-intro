@@ -54,8 +54,8 @@ end
 class BookInStock
   
   def initialize(isbn, price)
-    @isbn = isbn
-    @price = Float(price)
+    self.isbn = isbn
+    self.price = Float(price)
   end
   
   def isbn
@@ -63,11 +63,19 @@ class BookInStock
   end
   
   def isbn=(new_isbn)
+    if new_isbn == nil or new_isbn == ""  
+      raise ArgumentError.new('The ISBN number cannot be empty')  
+    end
     @isbn = new_isbn
   end
   def price ; @price ; end
     
-  def price=(new_price) ; @price = new_price ; end
+  def price=(new_price)
+    if new_price <= 0  
+      raise ArgumentError.new('The price must be greater than 0')  
+    end
+    @price = new_price
+  end
   
   def price_as_string
     return sprintf("$%3.2f",@price)
