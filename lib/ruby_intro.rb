@@ -56,7 +56,7 @@ def binary_multiple_of_4? s
   #div_by_4 = /00$/
   
   #digit_pattern =~ s and not_2to9 =~ s and div_by_4 =~ s
-  /^(0*1[01]*00|0)$/ =~ s and /[^01]/
+  /^(0*1[01]*00|0)$/ =~ s
 end
 
 # Part 3
